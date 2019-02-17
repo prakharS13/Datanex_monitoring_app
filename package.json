@@ -1,0 +1,16 @@
+{
+  "name": "student_monitoring_app",
+  "version": "1.0.0",
+  "description": "Student monitoring app which keep records of grades,attendance,Exam forms.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Prakhar Saxena",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.10"
+  }
+}
