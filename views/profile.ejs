@@ -8,6 +8,30 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 </head>
 <style>
+.main-style-user-center img{
+ height:100%;
+ width:200px;
+ position:absolute;
+ top:15%;
+ left:45%;
+ float:right;	
+ background-color:white;
+}
+.user-details p{
+   font-size:20px;
+   background-color:slategrey;
+   color:white;
+   margin-top:15%;
+   text-align:center;
+   width:50%;
+   margin-left:23%;
+   border:1px solid black;
+}
+.user-details h4
+{
+margin-left:30%;
+margin-top:2%;
+}
 .sidenav {
   height: 100%;
   width: 20%;
@@ -38,17 +62,10 @@ padding-left:23%;
   color: white;
   
 }
-select{
-border-radius:3px;
-height:35px;
-width:50%;
-border-color:grey;
-}
-form{
-margin-left:30%;
+.sidenav a:hover{
 }
 .panel-success{
-width:70%;
+width:30%;
 height:300px;
 float:left;
 position:absolute;
@@ -72,21 +89,19 @@ float:right;
 #main-style{
 width:100%;
 height:250px;
-background-color:orange;
+background-color:lightcoral;
 }
-.main-style-user-right{
- height:100px;
- width:200px;
- float:right;
- margin:2% 5% 0px 0px ;
- border:2px solid black;	
- background-color:white;
+.table-bordered{
+position:fixed;
+width:40%;
+top:30%;
+left:40%;
+background-color:white;
+border:2px solid black;
 }
-#main-style-user-content{
-margin:20px;
-color:dodgerblue;
+.table-bordered tr,th,td{
+text-align:center;
 }
-
 </style>
 <body>
 <div id="mySidenav" class="sidenav">
@@ -101,57 +116,21 @@ color:dodgerblue;
 				  </div>
 </div>
 <div id="main">
-  <div id="main-style">
-	<div class="main-style-user-right">
-					<div id="main-style-user-pic" style="float:left">
-						<img src="/users/student/cse/prakhar.jpg" style="height:90px;width:90px;margin:2px" >
-					</div>
-					<a href='javascript:void(0)' class='dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-						<p style="float:right;font-size:17px;margin-top:15%;margin-right:5%;">Prakhar <span class="caret"></span></p>
-					</a>
-					<ul class='dropdown-menu'>
-						<li id="sel"><a href='#'>Logout</a></li>
-					</ul>
-				</div>
-  </div>
-  <div class="panel panel-success">
-			  <div class="panel-heading" style="text-align:center">Grades</div>
-			  <div class="panel-body">
-				<form method="post" action="/results" >
-					<div class="form-group">
-						<label for="exampleInputName2">Select Semester </label><br>
-						<select name="sem" required>
-							<option class="btn-disable" value="dummy">-------------------------Semester-------------------------</option>
-							<option value="all">All Semesters</option>
-							<option value="1">1st Semester</option>
-							<option value="2">2nd Semester</option>
-							<option value="3">3rd Semester</option>
-							<option value="4">4th Semester</option>
-							<option value="5">5th Semester</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail2">Select Exam</label><br>
-						<select name="exam" required>
-							<option value="dummy">----------------------------Exam-------------------------</option>
-							<option value="md1">MidTerm 1st</option>
-							<option value="md2">MidTerm 2nd</option>
-							<option value="ac1">Activity 1st</option>
-							<option value="ac2">Activity 2nd</option>
-							<option value="rgpv">RGPV CGPA</option>
-						</select>
-					</div>
-					<button type="submit" class="btn btn-primary">Submit</button>
-				</form>
-			  </div>
-           		  
-   
-			  </div>
-				
-
-   
+	<div id="main-style"></div>
+		<div class="main-style-user-center">
+			<div id="main-style-user-pic" style="float:left">
+				<img src="/users/student/cse/prakhar.jpg" style="height:300px;width:300px;border-radius:100%;" >
+			</div>
+		</div>
+	<div class="user-details">
+		<p>Personal information :</p>
+		<h4>Name : <%= found.name %></h4>
+		<h4>E-mail : <%= found.email %></h4>
+		<h4>Phone :  <%= found.phone %></h4>
+		
+	</div>	
+	
+	
 </div>
-  
-
 </body>
 </html>

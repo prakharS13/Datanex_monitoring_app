@@ -2,12 +2,20 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Comfortaa" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 </head>
 <style>
+.main-style-user-right{
+ height:100px;
+ width:200px;
+ float:right;
+ margin:2% 5% 0px 0px ;
+ border:2px solid black;	
+ background-color:white;
+}
 .sidenav {
   height: 100%;
   width: 20%;
@@ -65,38 +73,18 @@ float:right;
 #main-style{
 width:100%;
 height:250px;
-background-color:tomato;
+background-color:slateblue;
 }
-.main-style-user-right{
- height:100px;
- width:200px;
- float:right;
- margin:2% 5% 0px 0px ;
- border:2px solid black;	
- background-color:white;
+.table-bordered{
+position:fixed;
+width:40%;
+top:30%;
+left:40%;
+background-color:white;
+border:2px solid black;
 }
-.main-style-user-left{
- height:100px;
- width:200px;
- float:left;
- margin:2% 5% 0px 5% ;
- border:2px solid black;	
- background-color:white;
- 
- font-size:20px;
-}
-.main-style-user-middle{
- height:100px;
- width:200px;
- float:left;
- font-size:20px;
- margin:2% 5% 0px 0px ;
- border:2px solid black;	
- background-color:white;
-}
-#main-style-user-content{
-margin:20px;
-color:dodgerblue;
+.table-bordered tr,th,td{
+text-align:center;
 }
 </style>
 <body>
@@ -112,15 +100,8 @@ color:dodgerblue;
 				  </div>
 </div>
 <div id="main">
-	<div id="main-style">
-			<div id="main-style-column">
-				<div class="main-style-user-left">
-					<p id="main-style-user-content">CGPA : 8.54 </p>
-				</div>
-				<div class="main-style-user-middle">
-					<p id="main-style-user-content">Attendance : <br><b><span style="color:yellow;margin-left:15%;">AVERAGE</span></b> </p>
-				</div>
-				<div class="main-style-user-right">
+  <div id="main-style">
+     <div class="main-style-user-right">
 					<div id="main-style-user-pic" style="float:left">
 						<img src="/users/student/cse/prakhar.jpg" style="height:90px;width:90px;margin:2px" >
 					</div>
@@ -131,31 +112,31 @@ color:dodgerblue;
 						<li id="sel"><a href='#'>Logout</a></li>
 					</ul>
 				</div>
-			</div>
-		</div>  
+  </div>
 
-
-	<div id="main-panel"> 
-			 <div class="panel panel-success">
-			  <div class="panel-heading" style="text-align:center">Notices</div>
-			  <div class="panel-body">
-				1. Exam forms are open for Session(2016-2020).Last date for submition is 19 April 2019.<a href="/fill-exam-form">Submit here </a>
-			  </div>
-			  </div>
-			  <div class="panel panel-warning">
-			  <div class="panel-heading" style="text-align:center">Upcoming Events</div>
-			  <div class="panel-body">
-				<a>1. Papon-Live in Concert on 15th March 2019 ('NAAD' Amphitheater)</a><br> 
-				<a>2. Annual Day on 14th March 2019
-			  </div>
-		</div> 
-		
-</div>
-
-  
-  
+  <table class="table table-bordered">
+			  <tr class="active">
+				<th>Semester</th>
+				<th>RGPV Score</th> 
+			  </tr>
+			  <% var i=1; found.forEach(function(founded){ %>
+			  <% if(semValue=="all"&&examValue=="rgpv") for(var j=0;j<founded.rgpv.length;j++) {%>
+			  <tr>
+			    <td><%= i %></td>
+			    <td><%= founded.rgpv[j].score %></td>
+			  </tr>
+			   <% i++} else  { %>
+			   
+			   
+			  <tr>
+			    <td><%= semValue %></td>
+			    <td><%= founded.rgpv[semValue].score %></td>
+			  </tr>
+			   <% } %>
+			   <%  });%>
+			  </table>
+			  
+     <a href="/my-grades">Check again</a>
 </div>
 </body>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </html>

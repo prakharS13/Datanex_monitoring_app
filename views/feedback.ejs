@@ -83,7 +83,18 @@ background-color:slateblue;
 <div id="main">
   <div id="main-style"></div>
 
-  
+  <table class="table table-striped">
+			  <tr class="active">
+				<th>Semester</th>
+				<th>RGPV Score</th> 
+			  </tr>
+			  <% var i=1; found.forEach(function(founded){ %>
+			  <tr>
+			    <td><%= i %></td>
+			    <td><%= founded.rgpv %></td>
+			  </tr>
+			   <% i++ }); %>
+			  </table>
   
 </div>
 </body>
