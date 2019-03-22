@@ -17,10 +17,10 @@
   float:left;
 }
 #mysidenav-info{
-padding-left:10%;
+padding-left:5%;
   padding-top:5%;
-  font-size: 28px;
-  color: #818181;
+  font-size: 21px;
+  color:white;
   display: block;
 }
 #mysidenav-tabs{
@@ -90,7 +90,7 @@ color:dodgerblue;
 </style>
 <body>
 <div id="mySidenav" class="sidenav">
-                  <span id="mysidenav-info">Welcome Prakhar</span>
+                  <span id="mysidenav-info">Welcome <%=found.name%></span>
 				  <div id="mysidenav-tabs">
 				  <a href="/"><i class="fas fa-home" style="color:tomato"></i>Dashboard</a>
 				  <a href="/my-grades"><i class="fas fa-address-card" style="color:orange"></i>My Grades</a>
@@ -107,7 +107,7 @@ color:dodgerblue;
 						<img src="/users/student/cse/prakhar.jpg" style="height:90px;width:90px;margin:2px" >
 					</div>
 					<a href='javascript:void(0)' class='dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-						<p style="float:right;font-size:17px;margin-top:15%;margin-right:5%;">Prakhar <span class="caret"></span></p>
+						<p style="float:right;font-size:12px;margin-top:15%;margin-right:5%;"><%=found.name%> </p>
 					</a>
 					<ul class='dropdown-menu'>
 						<li id="sel"><a href='#'>Logout</a></li>

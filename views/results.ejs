@@ -86,10 +86,16 @@ border:2px solid black;
 .table-bordered tr,th,td{
 text-align:center;
 }
+.btn-warning{
+ bottom:60px;
+ right:60px;
+ position:absolute;
+ border:1px solid  black;
+}
 </style>
 <body>
 <div id="mySidenav" class="sidenav">
-                  <span id="mysidenav-info">Welcome Prakhar</span>
+                  <span id="mysidenav-info">Welcome <%=found.name%></span>
 				  <div id="mysidenav-tabs">
 				  <a href="/"><i class="fas fa-home" style="color:tomato"></i>Dashboard</a>
 				  <a href="/my-grades"><i class="fas fa-address-card" style="color:orange"></i>My Grades</a>
@@ -106,37 +112,390 @@ text-align:center;
 						<img src="/users/student/cse/prakhar.jpg" style="height:90px;width:90px;margin:2px" >
 					</div>
 					<a href='/profile' class='dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-						<p style="float:right;font-size:17px;margin-top:15%;margin-right:5%;">Prakhar <span class="caret"></span></p>
+						<p style="float:right;font-size:12px;margin-top:15%;margin-right:5%;"><%= found.name %></p>
 					</a>
-					<ul class='dropdown-menu'>
-						<li id="sel"><a href='#'>Logout</a></li>
-					</ul>
+					
 				</div>
   </div>
 
   <table class="table table-bordered">
-			  <tr class="active">
-				<th>Semester</th>
-				<th>RGPV Score</th> 
-			  </tr>
-			  <% var i=1; found.forEach(function(founded){ %>
-			  <% if(semValue=="all"&&examValue=="rgpv") for(var j=0;j<founded.rgpv.length;j++) {%>
-			  <tr>
-			    <td><%= i %></td>
-			    <td><%= founded.rgpv[j].score %></td>
-			  </tr>
-			   <% i++} else  { %>
-			   
-			   
-			  <tr>
-			    <td><%= semValue %></td>
-			    <td><%= founded.rgpv[semValue].score %></td>
-			  </tr>
+
+			  <% var i=1;  %>
+			  
+			  
+			  <% if(semValue=="all"&&examValue=="rgpv"){%>
+				<tr class="active">
+					<th>Semester</th>
+					<th>RGPV Score</th>
+				</tr>
+				
+					<% for(var j=0;j<found.rgpv.length;j++) {%>
+					 <tr>
+						<td><%= i %></td>
+			            <td><%= found.rgpv[j].score %></td>
+					</tr>
+			   <% i++}} //if and for ended here%>
+			   <% if(semValue!="all"&&examValue=="rgpv") { %>
+			   <tr class="active">
+					<th>Semester</th>
+					<th>RGPV Score</th>
+				</tr>
+			   <tr>
+					<td><%= semValue %></td>
+					<td><%= found.rgpv[semValue-1].score %></td>
+			   </tr>
 			   <% } %>
-			   <%  });%>
+			  
+			   
+<% //Activity of Semester 1   %>
+			   
+			   <% if(semValue=="1"&&examValue=="ac1"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=0;j<5;j++) {%>
+						<th><%= found.ActivitySem1[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=0;j<5;j++) {%>
+						<td><%=found.ActivitySem1[j].score %></td>
+					<%}%>
+
+			    </tr>
+				
+			    <%} //if ended here %> 
+				
+				 <% if(semValue=="1"&&examValue=="ac2"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=5;j<10;j++) {%>
+						<th><%= found.ActivitySem1[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=5;j<10;j++) {%>
+						<td><%= found.ActivitySem1[j].score %></td>
+					<%}%>
+			    </tr>
+			    <%} //if ended here %> 
+				
+<% //MidTerm of Semester 1   %>
+			   
+			   <% if(semValue=="1"&&examValue=="md1"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=0;j<5;j++) {%>
+						<th><%= found.MidtermSem1[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=0;j<5;j++) {%>
+						<td><%=found.MidtermSem1[j].score %></td>
+					<%}%>
+
+			    </tr>
+				
+			    <%} //if ended here %> 
+				
+				 <% if(semValue=="1"&&examValue=="md2"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=5;j<10;j++) {%>
+						<th><%= found.MidtermSem1[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=5;j<10;j++) {%>
+						<td><%= found.MidtermSem1[j].score %></td>
+					<%}%>
+			    </tr>
+			    <%} //if ended here %> 
+				
+<% //Activity of Semester 2   %>
+			   
+			   <% if(semValue=="2"&&examValue=="ac1"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=0;j<5;j++) {%>
+						<th><%= found.ActivitySem2[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=0;j<5;j++) {%>
+						<td><%=found.ActivitySem2[j].score %></td>
+					<%}%>
+
+			    </tr>
+				
+			    <%} //if ended here %> 
+				
+				 <% if(semValue=="2"&&examValue=="ac2"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=5;j<10;j++) {%>
+						<th><%= found.ActivitySem2[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=5;j<10;j++) {%>
+						<td><%= found.ActivitySem2[j].score %></td>
+					<%}%>
+			    </tr>
+			    <%} //if ended here %> 
+				
+<% //MidTerm of Semester 2   %>
+			   
+			   <% if(semValue=="2"&&examValue=="md1"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=0;j<5;j++) {%>
+						<th><%= found.MidtermSem2[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=0;j<5;j++) {%>
+						<td><%=found.MidtermSem2[j].score %></td>
+					<%}%>
+
+			    </tr>
+				
+			    <%} //if ended here %> 
+				
+				 <% if(semValue=="2"&&examValue=="md2"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=5;j<10;j++) {%>
+						<th><%= found.MidtermSem2[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=5;j<10;j++) {%>
+						<td><%= found.MidtermSem2[j].score %></td>
+					<%}%>
+			    </tr>
+			    <%} //if ended here %> 
+				
+<% //Activity of Semester 3   %>
+			   
+			   <% if(semValue=="3"&&examValue=="ac1"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=0;j<5;j++) {%>
+						<th><%= found.ActivitySem3[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=0;j<5;j++) {%>
+						<td><%=found.ActivitySem3[j].score %></td>
+					<%}%>
+
+			    </tr>
+				
+			    <%} //if ended here %> 
+				
+				 <% if(semValue=="3"&&examValue=="ac2"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=5;j<10;j++) {%>
+						<th><%= found.ActivitySem3[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=5;j<10;j++) {%>
+						<td><%= found.ActivitySem3[j].score %></td>
+					<%}%>
+			    </tr>
+			    <%} //if ended here %> 
+				
+<% //MidTerm of Semester 3   %>
+			   
+			   <% if(semValue=="3"&&examValue=="md1"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=0;j<5;j++) {%>
+						<th><%= found.MidtermSem3[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=0;j<5;j++) {%>
+						<td><%=found.MidtermSem3[j].score %></td>
+					<%}%>
+
+			    </tr>
+				
+			    <%} //if ended here %> 
+				
+				 <% if(semValue=="3"&&examValue=="md2"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=5;j<10;j++) {%>
+						<th><%= found.MidtermSem3[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=5;j<10;j++) {%>
+						<td><%= found.MidtermSem3[j].score %></td>
+					<%}%>
+			    </tr>
+			    <%} //if ended here %> 	
+
+<% //Activity of Semester 4   %>
+			   
+			   <% if(semValue=="4"&&examValue=="ac1"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=0;j<5;j++) {%>
+						<th><%= found.ActivitySem4[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=0;j<5;j++) {%>
+						<td><%=found.ActivitySem4[j].score %></td>
+					<%}%>
+
+			    </tr>
+				
+			    <%} //if ended here %> 
+				
+				 <% if(semValue=="4"&&examValue=="ac2"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=5;j<10;j++) {%>
+						<th><%= found.ActivitySem4[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=5;j<10;j++) {%>
+						<td><%= found.ActivitySem4[j].score %></td>
+					<%}%>
+			    </tr>
+			    <%} //if ended here %> 
+				
+<% //MidTerm of Semester 4   %>
+			   
+			   <% if(semValue=="4"&&examValue=="md1"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=0;j<5;j++) {%>
+						<th><%= found.MidtermSem4[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=0;j<5;j++) {%>
+						<td><%=found.MidtermSem4[j].score %></td>
+					<%}%>
+
+			    </tr>
+				
+			    <%} //if ended here %> 
+				
+				 <% if(semValue=="4"&&examValue=="md2"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=5;j<10;j++) {%>
+						<th><%= found.MidtermSem4[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=5;j<10;j++) {%>
+						<td><%= found.MidtermSem4[j].score %></td>
+					<%}%>
+			    </tr>
+			    <%} //if ended here %> 				
+				
+<% //Activity of Semester 5   %>
+			   
+			   <% if(semValue=="5"&&examValue=="ac1"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=0;j<5;j++) {%>
+						<th><%= found.ActivitySem5[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=0;j<5;j++) {%>
+						<td><%=found.ActivitySem5[j].score %></td>
+					<%}%>
+
+			    </tr>
+				
+			    <%} //if ended here %> 
+				
+				 <% if(semValue=="5"&&examValue=="ac2"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=5;j<10;j++) {%>
+						<th><%= found.ActivitySem5[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=5;j<10;j++) {%>
+						<td><%= found.ActivitySem5[j].score %></td>
+					<%}%>
+			    </tr>
+			    <%} //if ended here %> 
+				
+<% //MidTerm of Semester 5   %>
+			   
+			   <% if(semValue=="5"&&examValue=="md1"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=0;j<5;j++) {%>
+						<th><%= found.MidtermSem5[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=0;j<5;j++) {%>
+						<td><%=found.MidtermSem5[j].score %></td>
+					<%}%>
+
+			    </tr>
+				
+			    <%} //if ended here %> 
+				
+				 <% if(semValue=="5"&&examValue=="md2"){%>
+				<tr class="active"> 
+					<th>Semester</th>
+					<% for(var j=5;j<10;j++) {%>
+						<th><%= found.MidtermSem5[j].sub %></th> 
+					<%}%> 
+				</tr>
+				<tr>
+					<td><%= semValue %></td>
+					<% for(var j=5;j<10;j++) {%>
+						<td><%= found.MidtermSem5[j].score %></td>
+					<%}%>
+			    </tr>
+			    <%} //if ended here %> 
+				
+				
+				
+				
+				
+			   <% // });%>
+			   
 			  </table>
 			  
-     <a href="/my-grades">Check again</a>
+     <a href="/my-grades"><button class="btn btn-warning">Check again</button></a>
 </div>
 </body>
 </html>

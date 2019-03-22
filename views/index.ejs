@@ -15,12 +15,15 @@
   background-color: #111;
   transition: 0.5s;
   float:left;
+  z-index:1;
+  overflow-x:hidden;
 }
 #mysidenav-info{
-padding-left:10%;
+
   padding-top:5%;
-  font-size: 28px;
-  color: #818181;
+  font-size: 21px;
+  color: white;
+  text-align:center;
   display: block;
 }
 #mysidenav-tabs{
@@ -28,8 +31,11 @@ margin-top:30%;
 padding-left:23%;
  font-size: 20px;
  }
- .fa-home,.fa-address-card,.fa-clipboard-list,.fa-cog,.fa-comments,.fa-pen{
+ .fa-home,.fa-address-card,.fa-clipboard-list,.fa-cog,.fa-comments,.fa-pen,.fa-sign-out-alt{
  padding-right:10px;
+ }
+ .fa-sign-out-alt{
+ margin-top:50%;
  }
 .sidenav a{
    display:block;
@@ -60,6 +66,7 @@ right:0;
 #main{
 height:100%;
 width:80%;
+z-index:2;
 float:right;
 }
 #main-style{
@@ -98,17 +105,51 @@ background-color:tomato;
 margin:20px;
 color:dodgerblue;
 }
+.main-style-user-right img{
+height:90px;width:90px;
+}
+@media only screen and (max-width:600px){
+.sidenav{
+ width:0;
+} 
+
+#main{
+width:100%;
+}
+.main-style-user-left,.main-style-user-middle{
+height:70px;width:70px;
+font-size:15px;
+}
+.main-style-user-right{
+height:70px;width:100px;
+font-size:15px;
+}
+.main-style-user-right img{
+height:50px;width:50px;
+}
+.panel-warning{
+width:30%;
+height:300px;
+
+position:absolute;
+top:25%;
+margin-right:60px;
+right:0;
+}
+}
+
 </style>
 <body>
 <div id="mySidenav" class="sidenav">
-                  <span id="mysidenav-info">Welcome Prakhar</span>
+                  <span id="mysidenav-info">Welcome <%=found.name%></span>
 				  <div id="mysidenav-tabs">
-				  <a href="/"><i class="fas fa-home" style="color:tomato"></i>Dashboard</a>
+				  <a href="/student"><i class="fas fa-home" style="color:tomato"></i>Dashboard</a>
 				  <a href="/my-grades"><i class="fas fa-address-card" style="color:orange"></i>My Grades</a>
 				  <a href="/attendance"><i class="fas fa-clipboard-list" style="color:dodgerblue"></i>Attendance</a>
 				  <a href="/fill-exam-form"><i class="fas fa-pen" style="color:mediumseagreen"></i>Fill Exam Form</a>
 				  <a href="/feedback"><i class="fas fa-comments" style="color:slateblue"></i>Feedback</a>
 				  <a href="/settings"><i class="fas fa-cog" style="color:violet"></i>Settings</a>
+				  <a href="/signout"><i class="fas fa-sign-out-alt" style="color:khaki"></i>Sign Out</a>
 				  </div>
 </div>
 <div id="main">
@@ -120,23 +161,23 @@ color:dodgerblue;
 				<div class="main-style-user-middle">
 					<p id="main-style-user-content">Attendance : <br><b><span style="color:yellow;margin-left:15%;">AVERAGE</span></b> </p>
 				</div>
-				<div class="main-style-user-right">
+				
+				<a href='/profile' class='dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+				<div class="main-style-user-right" onclick="openDrop()">
 					<div id="main-style-user-pic" style="float:left">
-						<img src="/users/student/cse/prakhar.jpg" style="height:90px;width:90px;margin:2px" >
-					</div>
-					<a href='/profile' class='dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-						<p style="float:right;font-size:17px;margin-top:15%;margin-right:5%;">Prakhar <span class="caret"></span></p>
-					</a>
-					<ul class='dropdown-menu'>
-						<li id="sel"><a href='#'>Logout</a></li>
-					</ul>
+							<img src="/users/student/cse/prakhar.jpg" style="margin:2px" >
+						</div> 
+						<p style="float:right;font-size:12px;margin-top:15%;margin-right:5%;">PROFILE<br><br><%=found.name%></span></p>
+						
+					
 				</div>
+				</a>
 			</div>
+			
 		</div>  
-
-
+                   
 	<div id="main-panel"> 
-			 <div class="panel panel-success">
+			 <div class="panel panel-success ">
 			  <div class="panel-heading" style="text-align:center">Notices</div>
 			  <div class="panel-body">
 				1. Exam forms are open for Session(2016-2020).Last date for submition is 19 April 2019.<a href="/fill-exam-form">Submit here </a>
@@ -153,9 +194,8 @@ color:dodgerblue;
 </div>
 
   
-  
 </div>
 </body>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </html>

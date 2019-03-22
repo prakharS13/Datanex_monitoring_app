@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> DATANEX
+</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Comfortaa" rel="stylesheet">
+<style>
+* {
+    box-sizing: border-box;
+}
+body{
+ margin:0;
+ font-family: 'Do Hyeon', sans-serif;
+}
+#mutedLoop{
+    position:fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 0%; 
+    min-height: 0%;
+}
+.page-middle{
+ position:fixed;
+ color:white;
+ font-size:75px;
+ bottom:30%;
+ padding:25px;
+ text-transform:uppercase;
+ font-family: 'Do Hyeon', sans-serif;
+}
+.carousel-content{
+font-size:95px;
+color:crimson;
+font-family: 'Comfortaa', cursive;
+}
+ul li {
+list-style:none;
+}
+.page-tag{
+position:fixed;
+font-size:25px;
+color:white;
+background-color:#11939A;
+padding:30px;
+bottom:0;
+right:0;
+margin:0px 30px 50px 0px;
+opacity:0.8;
+cursor:pointer;
+border:5px solid white;
+}
+.page-tag:hover{
+opacity:1;
+}
+@media only screen and (max-width:600px)
+{ .page-middle{
+   font-size:35px;
+   bottom:40%;
+  }
+  .carousel-content{
+    font-size:25px;
+  }
+  .page-tag
+  { 
+    padding:15px;
+	margin-right:25%;
+	opacity:1;
+    font-size:18px;
+  }
+  
+}
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:white;
+  opacity:0.9;
+  overflow-y: hidden;
+  transition: 0.3s;
+  border:10px solid black;
+}
+.overlay-content {
+  position: relative;
+  top: 20%;
+  width: 50%;
+  margin-left:25%;
+  margin-top: 30px;
+}
+.overlay1 {
+  height: 100%;
+  width: 0%;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color:white;
+  opacity:1;
+  overflow-x: hidden;
+  transition: 0.3s;
+  border:10px solid black;
+}
+
+.closebtn {
+  padding: 8px;
+  font-size: 36px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+.overlay1 .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+label,.btn-primary{
+font-size:30px;
+}
+.loginForm{
+background-color:white;
+}
+.loginForm h1
+{margin:5% 0 0 35%;
+font-size:50px;
+}
+.loginForm h2
+{margin:5% 0 0 25%;
+font-size:50px;
+}
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+  .loginForm h1{
+   font-size:30px;
+  }
+}
+</style>
+<body>
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  
+  <div class="overlay-content" style="background-color:white;opacity:1;">
+    <div class="loginForm" style="border:2px solid black;padding:20px;background-color:white">
+		<h1>Sign In !</h1>
+		<form method=post action="/user">
+			<div class="form-group">
+				<label for="exampleInputName2">Username </label><br>
+				<input type="text" class="form-control" placeholder="Enter username" name="username" required>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputName2">Password </label><br>
+				<input type="password" class="form-control" placeholder="Enter password" name="password" required>
+			</div>
+			<button class="btn btn-primary">SignIn</button> Forgot Password ? click <a href="javascript:void(0)" onclick="openNav1()">here</a>
+		</form>
+	</div>
+  </div>
+</div>
+<div id="myNav2" class="overlay1">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
+  
+  <div class="overlay-content">
+    <div class="loginForm" style="border:2px solid black;padding:20px;background-color:white">
+		<h2>Forgot Password !</h2>
+		<form method=post action="/forgot-password">
+			<div class="form-group">
+				<label for="exampleInputName2">Username </label><br>
+				<input type="text" class="form-control" placeholder="Enter username" name="username" required>
+			</div>
+			<button class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+  </div>
+</div>
+
+
+<div class="body-wrap">
+	<div class="page-head">
+		<video id="mutedLoop" autoplay loop>
+			<source src="/stylesheet/bit_grip_bg.mp4"></source>
+		</video>
+    </div>
+	
+	<div class="page-middle">
+	
+    <ul>		 
+		Say <span id="variable">bye</span> to<br>
+		<li class="carousel-content">Long Registers .</li>
+		<li class="carousel-content">Errors .</li>
+		<li class="carousel-content">Manual Work .</li>	   
+	    <li class="carousel-content" style="font-size:60px">DATANEX MONITORING SYSTEM !</li>
+	</ul>	
+	</div>  
+	
+		<div class="page-tag"  onclick="openNav()" >
+			Get Started  <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+		</div>
+	
+	
+	
+	  
+</div>
+
+	
+
+</body>
+<script>//carousel
+var pointer=0;
+slideshow();
+function slideshow() 
+{
+var i;
+var contents=document.getElementsByClassName("carousel-content");
+var variable=document.querySelector("#variable")
+for(i=0;i<contents.length;i++)
+	{ contents[i].style.display="none";
+	}
+pointer++;
+variable.innerHTML="bye";
+variable.style.color="white";
+if(pointer>contents.length)
+	{
+		pointer=1;
+	}
+if(pointer==4)
+{ variable.innerHTML="Hello";
+  variable.style.color="mediumseagreen";
+  contents[3].style.color="#11939A";  
+} 
+ contents[pointer-1].style.display="block";
+ setTimeout(slideshow,3000);	 
+	
+}
+//modal
+var modal=document.getElementById("myNav");
+var modal1=document.getElementById("myNav2");
+function openNav()
+{  modal.style.height="100%";
+}
+function closeNav()
+{ modal.style.height="0%";
+}
+function openNav1()
+{  modal1.style.width="100%";
+}
+function closeNav1()
+{ modal1.style.width="0%";
+}
+
+</script>
+</html>
