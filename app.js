@@ -16,14 +16,14 @@ flash=require('connect-flash');
 var app=express();
 var request = unirest("POST", "https://www.fast2sms.com/dev/bulk");
 //Database conn
-/* mongoose.connect("mongodb://codehank:abc123456@ds111771.mlab.com:11771/student_monitoring",{useNewUrlParser:true},function(err){
+ mongoose.connect("mongodb://codehank:abc123456@ds111771.mlab.com:11771/student_monitoring",{useNewUrlParser:true},function(err){
 	if(err) throw err;
 	console.log("Successfully connected");
-	}); */
-	mongoose.connect("mongodb://localhost:27017/student_monitoring",{useNewUrlParser:true},function(err){
+	}); 
+	/*mongoose.connect("mongodb://localhost:27017/student_monitoring",{useNewUrlParser:true},function(err){
 	if(err) throw err;
 	console.log("Successfully connected");
-	});
+	});*/
 	
 //Session config	
 app.use(require("express-session")({  
