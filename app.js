@@ -103,9 +103,8 @@ app.post("/forgot-password",(req,res)=>{
 		  service: 'gmail',
 		  secure:false,
 		  auth: {
-			user: 'teambloggingarena@gmail.com',
-			pass: 'psaxena#123456'
-		  }
+			user: ,
+			pass:   }
 		});
 		var mailOptions = {
 		  from: 'teambloggingarena@gmail.com',
