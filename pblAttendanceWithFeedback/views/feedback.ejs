@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Comfortaa" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
+<style>
+.sidenav {
+  height: 100%;
+  width: 20%;
+  position:fixed;
+  background-color: #111;
+  transition: 0.5s;
+  float:left;
+}
+#mysidenav-info{
+padding-left:10%;
+  padding-top:5%;
+  font-size: 28px;
+  color: #818181;
+  display: block;
+}
+#mysidenav-tabs{
+margin-top:30%;
+padding-left:23%;
+ font-size: 20px;
+ }
+ .fa-home,.fa-address-card,.fa-clipboard-list,.fa-cog,.fa-comments,.fa-pen{
+ padding-right:10px;
+ }
+.sidenav a{
+   display:block;
+  text-decoration: none;
+  margin-top:10%;
+  color: white;
+  
+}
+.sidenav a:hover{
+}
+.panel-success{
+width:30%;
+height:300px;
+float:left;
+position:absolute;
+top:25%;
+margin-left:60px;
+}
+.panel-warning{
+width:30%;
+height:300px;
+float:left;
+position:absolute;
+top:25%;
+margin-right:60px;
+right:0;
+}
+#main{
+height:100%;
+width:80%;
+float:right;
+}
+#main-style{
+width:100%;
+height:250px;
+background-color:slateblue;
+}
+</style>
+<body>
+<div id="mySidenav" class="sidenav">
+                  <span id="mysidenav-info">Welcome Prakhar</span>
+				  <div id="mysidenav-tabs">
+				  <a href="/"><i class="fas fa-home" style="color:tomato"></i>Dashboard</a>
+				  <a href="/my-grades"><i class="fas fa-address-card" style="color:orange"></i>My Grades</a>
+				  <a href="/attendance"><i class="fas fa-clipboard-list" style="color:dodgerblue"></i>Attendance</a>
+				  <a href="/fill-exam-form"><i class="fas fa-pen" style="color:mediumseagreen"></i>Fill Exam Form</a>
+				  <a href="/feedback"><i class="fas fa-comments" style="color:slateblue"></i>Feedback</a>
+				  <a href="/settings"><i class="fas fa-cog" style="color:violet"></i>Settings</a>
+				  </div>
+</div>
+<div id="main">
+  <div id="main-style"></div>
+  <div class="panel panel-success">
+	<div class="panel-heading" style="text-align:center">Grades</div>
+	<div class="panel-body">
+	  <form method="post" action="/feedsubmit" >
+		  <div class="form-group">
+			  <label for="exampleInputName2">Select the feedback </label><br>
+			  <select name="feed" required>
+				  <option class="btn-disable" value="dummy">-------------------------FeedBack-------------------------</option>
+				  <option >Regarding faculty</option>
+				  <option >Regarding ClassRooms</option>
+				  <option >Regarding Bus facility</option>
+				  <option >Regarding TAP cell</option>
+				
+			  </select><br>
+			  <label for="exampleInputName2">Describe </label><br>
+			  <textarea name="describe" rows="5" cols="50"></textarea>
+		  </div>
+		
+		  <button type="submit" class="btn btn-primary">Submit</button>
+	  </form>
+	</div>
+		   
+
+	</div>
+	  
+  
+  
+</div>
+</body>
+</html>

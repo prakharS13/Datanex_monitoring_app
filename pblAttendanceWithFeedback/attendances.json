@@ -1,0 +1,8 @@
+{"_id":{"$oid":"5c9cf4508f870f3ff000e9f1"},"name":"prakhar","attend":"Absent","subject":"CS-6001","create_date":{"$date":"2019-03-28T16:20:32.654Z"},"__v":0}
+{"_id":{"$oid":"5c9cf4508f870f3ff000e9f2"},"name":"rahul","attend":"Present","subject":"CS-6002","create_date":{"$date":"2019-03-28T16:20:32.659Z"},"__v":0}
+{"_id":{"$oid":"5c9cf4508f870f3ff000e9f3"},"name":"raja","attend":"Absent","subject":"CS-6004","create_date":{"$date":"2019-03-28T16:20:32.660Z"},"__v":0}
+{"_id":{"$oid":"5c9cf4508f870f3ff000e9f4"},"name":"Rohan","attend":"Present","subject":"CS-6001","create_date":{"$date":"2019-03-28T16:20:32.660Z"},"__v":0}
+{"_id":{"$oid":"5c9e4160ca68ac384c75eb7e"},"name":"prakhar","attend":"Absent","subject":"CS-6001","create_date":{"$date":"2019-03-29T16:01:36.856Z"},"__v":0}
+{"_id":{"$oid":"5c9e4160ca68ac384c75eb7f"},"name":"rahul","attend":"Absent","subject":"CS-6002","create_date":{"$date":"2019-03-29T16:01:36.858Z"},"__v":0}
+{"_id":{"$oid":"5c9e4160ca68ac384c75eb80"},"name":"raja","attend":"Absent","subject":"CS-6005","create_date":{"$date":"2019-03-29T16:01:36.858Z"},"__v":0}
+{"_id":{"$oid":"5c9e4160ca68ac384c75eb81"},"name":"Rohan","attend":"Present","subject":"CS-6002","create_date":{"$date":"2019-03-29T16:01:36.858Z"},"__v":0}
