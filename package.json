@@ -1,6 +1,6 @@
 {
   "name": "student_monitoring",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "App which maintains data of students",
   "main": "app.js",
   "scripts": {
